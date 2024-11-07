@@ -59,6 +59,46 @@
     <link rel="stylesheet" href="node_modules/animate.css/animate.min.css" onerror="loadCssFromCDN('animate.css')">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" onerror="loadCssFromCDN('font-awesome.css')">
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapbox Map</title>
+    <!-- Mapbox GL CSS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet">
+    <style>
+            /* Popup background */
+            .popup-background {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+        /* Popup content */
+        .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+        .show {
+      display: flex;
+    }
+        /* Set the size of the map */
+        #map {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+
 </head>
 <body id="top">
 <!--[if lt IE 8]>
@@ -264,7 +304,7 @@
             <div class="col-md-12 text-center">
                 <h3>A picture is worth a thousand words!</h3>
                 <p>Help us capture the moment, tag your photos with the hashtag
-                    <a href="https://instagram.com/explore/tags/ramandantara/" target="_blank">#RamAndAntara</a>
+                    <a href="https://instagram.com/explore/tags/stoooooooooooooop/" target="_blank">#PhoAndThao</a>
                 </p>
             </div>
         </div>
@@ -373,45 +413,33 @@
 
 
 <section id="map" class="section-padding">
-    <div class="text-center">
-        <h3>How do I get there?</h3>
-        <p>It's way easier than you think!</p>
-    </div>
-    <div id="map-canvas"></div>
-    <div id="map-content-wrapper" class="container pointer-events-none">
-        <div class="row">
-            <div class="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
-                <div class="text-center">
-                    <div id="btn-show-content" class="toggle-map-content pointer-events-auto">
-                        <i class="fa fa-info-circle"></i>&nbsp;&nbsp; Show info
-                    </div>
-                </div>
-                <div id="map-content" class="pointer-events-auto">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h5>Riverside Palace</h5>
-                            <p>360D Đ. Bến Vân Đồn, Phường 1, Quận 4, Hồ Chí Minh</p>
-                        </div>
-                        <div class="col-md-6">
-                            <h5>Mr. Amit Roy</h5>
-                            <p><i class="fa fa-mobile"></i> <a href="tel://+84919791194">+84919791194</a><br>
-                                <i class="fa fa-mobile"></i> <a href="tel://+84919791194">+84919791194</a></p>
-                        </div>
-                    </div>
-                    <div class="row text-center">
-                        <div class="col-md-6" style="padding: 5px;">
-                        </div>
-                        <div class="col-md-6" style="padding: 5px;">
-                            <a class="btn btn-accent btn-small" id="btn-show-map"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Show
-                                map</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    <h1>Mapbox Map</h1>
+    <div id="map"></div>
 
+    <!-- Mapbox GL JS -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
+    <script>
+        // Set your access token
+        mapboxgl.accessToken = 'pk.eyJ1IjoicGhvbmd2dDEiLCJhIjoiY2xoZzFncnNjMGVnMzNldGVoZm82bXg1biJ9.piIeJ019YT_v1QrDsyoMGw';
+
+        // Create a new map instance centered on Ho Chi Minh City
+        const map = new mapboxgl.Map({
+            container: 'map', // Container ID
+            style: 'mapbox://styles/mapbox/streets-v11', // Map style
+            center: [106.6903,10.7557], // Ho Chi Minh City coordinates [lng, lat]
+            zoom: 12 // Zoom level to focus on the city
+        });
+
+        // Optional: Add a marker at the center
+        new mapboxgl.Marker()
+            .setLngLat([106.6903,10.7557])
+            .setPopup(new mapboxgl.Popup().setHTML(`
+                <h3><a href="https://maps.app.goo.gl/qSFFznR9i2MiUDdy6" target="_blank">Riverside Palace</a></h3>
+            `)) // The popup HTML with a clickable link
+            .addTo(map);
+    </script>
+</section>
+<div id="popup" class="popup-background">
 <section class="rsvp text-center" id="rsvp">
 
     <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
@@ -430,14 +458,6 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-
-
-
-    <a id="grabLink" href="grab://open?screenType=booking&method=standard&dropoff=10.7626,106.6601&dropoff_name=Riverside%20Palace">Order a Grab Ride</a>
-    <!-- <a id="grabLink1" href="grab://open?screenType=booking&method=bike&dropoff=10.7626,106.6601&dropoff_name=Riverside%20Palace">Order a Grab bike</a>
-    <a id="grabLink2" href="grab://open?screenType=booking&method=grabBike&dropoff=10.7626,106.6601&dropoff_name=Riverside%20Palace">Order a Grab grabBike</a>
-    <a id="grabLink3" href="grab://open?screenType=booking&method=grab_car&dropoff=10.7626,106.6601&dropoff_name=Riverside%20Palace">Order a Grab grab_car</a>
-    <a id="grabLink4" href="grab://open?screenType=booking&method=grab_bike&dropoff=10.7626,106.6601&dropoff_name=Riverside%20Palace">Order a Grab grab_bike</a> -->
 <script>
   document.getElementById('grabLink').onclick = function () {
     setTimeout(function () {
@@ -458,8 +478,8 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-envelope"></i><input type="email" name="email" class=""
-                                                                     placeholder="Your email"
+                                <i class="fa fa-phone"></i><input type="phone" name="phone" class=""
+                                                                     placeholder="Your phone"
                                                                      required>
                             </div>
                         </div>
@@ -469,6 +489,15 @@
                                                                 class="" min="0"
                                                                 placeholder="Invite code"
                                                                 required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row"></div>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-input-group">
+                                <i class="fa fa-heart"></i><input type="wishe" name="wishe" class=""
+                                                                     placeholder="Well wishes"
+                                                                     required>
                             </div>
                         </div>
                     </div>
@@ -484,7 +513,7 @@
         </div>
     </div>
 </section>
-
+</div>
 <footer>
     <div class="container">
         <div class="row">
@@ -520,6 +549,20 @@
     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
     ga('create', 'UA-46465113-4', 'auto');
     ga('send', 'pageview');
+</script>
+<script>
+// function openPopup() {
+//     document.getElementById("popup").classList.add("show");
+//   }
+
+  // Close popup function
+  function closePopup() {
+    document.getElementById("popup").classList.remove("show");
+  }
+      // Automatically open popup when the page loads
+    //   window.onload = function() {
+    //   openPopup();
+    // };
 </script>
 </body>
 </html>
