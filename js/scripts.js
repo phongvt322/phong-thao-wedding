@@ -219,20 +219,20 @@ $(document).ready(function () {
     },
     data: {
       // Event title
-      title: "Ram and Antara's Wedding",
+      title: "Đám cưới",
 
       // Event start date
-      start: new Date("Nov 27, 2017 10:00"),
+      start: new Date("Nov 27, 2024 10:00"),
 
       // Event duration (IN MINUTES)
       // duration: 120,
 
       // You can also choose to set an end time
       // If an end time is set, this will take precedence over duration
-      end: new Date("Nov 29, 2017 00:00"),
+      end: new Date("Nov 29, 2024 00:00"),
 
       // Event Address
-      address: "ITC Fortune Park Hotel, Kolkata",
+      address: "Thôn cành lá, xã cành cây, huyện gió mây, tỉnh đồi núi",
 
       // Event Description
       description:
@@ -258,7 +258,7 @@ $(document).ready(function () {
       $("#alert-wrapper").html(alert_markup("danger", "<strong>123</strong>"));
     } else {
       $.post(
-        "https://script.google.com/a/macros/7-eleven.vn/s/AKfycbxjliGmJA8zht3ANOgr8iGqW6rdN2cHXPT8e65JILlV5JlYHPx89ZrtIxeGB4nUU2Pm/exec",
+        "https://script.google.com/a/macros/7-eleven.vn/s/AKfycbwjMhPzbjKWKTZEDs5zmquUHKbMBhDtkeg5_lY3QkQpZxPrHE7ZYApoYPmOqtMzMX8C/exec",
         data
       )
         .done(function (data) {
