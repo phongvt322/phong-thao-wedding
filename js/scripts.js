@@ -261,9 +261,8 @@ $(document).ready(function () {
         url: "https://script.google.com/macros/s/AKfycbw-ir8TR8ihmgS7tY4TNjnIUJNCYmyKmET-uOqIAPM7uysAa_hX0TYMZ5eklCCbW0Zscg/exec",
         type: "POST",
         data: data,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
+        contentType: "application/x-www-form-urlencoded",
+        // Removed headers as they are not applicable for the client-side request
       })
         .done(function (data) {
           console.log(data);
