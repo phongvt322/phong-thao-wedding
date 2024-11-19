@@ -257,10 +257,14 @@ $(document).ready(function () {
     if (MD5($("#invite_code").val()) !== "cdadd6d9142d6d284e480028e18163c1") {
       $("#alert-wrapper").html(alert_markup("danger", "<strong>123</strong>"));
     } else {
-      $.post(
-        "https://script.google.com/macros/s/AKfycbxiIao9KX3CkI4h3j4o3EaEC3tnNs1Uywf1cxzVh_MvrddzUP_I_VvL50EXN_KYMbw47w/exec",
-        data
-      )
+      $.ajax({
+        url: "https://script.google.com/macros/s/AKfycbw-ir8TR8ihmgS7tY4TNjnIUJNCYmyKmET-uOqIAPM7uysAa_hX0TYMZ5eklCCbW0Zscg/exec",
+        type: "POST",
+        data: data,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+      })
         .done(function (data) {
           console.log(data);
           if (data.result === "error") {
