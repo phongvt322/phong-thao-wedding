@@ -258,7 +258,7 @@ $(document).ready(function () {
       $("#alert-wrapper").html(alert_markup("danger", "<strong>123</strong>"));
     } else {
       $.post(
-        "https://script.google.com/macros/s/AKfycbzUbajR3QrvVIFviU5U6y4-CyAlN-nKp1utsBVLXINQR6pqsnvhtOce2OnN5pv7NvX8oA/exec",
+        "https://script.google.com/macros/s/AKfycbxiIao9KX3CkI4h3j4o3EaEC3tnNs1Uywf1cxzVh_MvrddzUP_I_VvL50EXN_KYMbw47w/exec",
         data
       )
         .done(function (data) {
