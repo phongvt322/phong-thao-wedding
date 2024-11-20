@@ -66,7 +66,7 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet">
     <style>
             /* Popup background */
-            .popup-background {
+    .popup-background {
       display: none;
       position: fixed;
       top: 0;
@@ -89,7 +89,7 @@
       text-align: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-        .show {
+    .show {
       display: flex;
     }
         /* Set the size of the map */
@@ -156,8 +156,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h3>We are getting hitched</h3>
-                <p>The dates are 27<sup>th</sup> & 28<sup>th</sup> of November '17 and we would like you to be a part of
+                <h3 id="cam-on">We are getting hitched</h3>
+                <p id="loi-cam-on">The dates are 27<sup>th</sup> & 28<sup>th</sup> of November '17 and we would like you to be a part of
                     it.</p>
                 <div class="share-bar"></div>
             </div>
@@ -174,7 +174,7 @@
         </div>
         <div class="row">
             <div class="col-md-3 hidden-sm hidden-xs"><img src="img/IMG_2317.jpg" class="wp1"></div>
-            <div class="col-md-6">
+            <div class="col-md-6" id = "how-we-met">
                 <p>
                     I first saw Antara in the Fall of 2008 when we started our undergrad. I was instantly attracted to
                     her but was far too nervous to speak to her. I had told my friend I liked her and news had traveled
@@ -492,7 +492,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row"></div>
+                    <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
                                 <i class="fa fa-user"></i><input type="name" name="name" class=""
@@ -509,7 +509,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row"></div>
+                    <div class="row">
                         <div class="col-md-12 col-sm-12">
                             <div class="form-input-group">
                                 <i class="fa fa-heart"></i><input type="wishe" name="wishe" class=""

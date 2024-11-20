@@ -258,7 +258,7 @@ $(document).ready(function () {
       $("#alert-wrapper").html(alert_markup("danger", "<strong>123</strong>"));
     } else {
       $.ajax({
-        url: "https://script.google.com/macros/s/AKfycbyX0zDivY5kIVy9BEWunJ7lt92JUCIczOcVaPsSktolZFLSQYjrkACkzWOfc6iF-RkseA/exec",
+        url: "https://script.google.com/macros/s/AKfycbwUjv9onKWdN0unvqe7uqsG9Yq7z_KIp8Pr7z8XLPAtBh9NBfiGBx7mJ2aJCkvzE05AXg/exec",
         type: "POST",
         data: data,
         contentType: "application/x-www-form-urlencoded",
@@ -270,7 +270,14 @@ $(document).ready(function () {
             $("#alert-wrapper").html(alert_markup("danger", data.message));
           } else {
             $("#alert-wrapper").html("");
+            // console.log(data);
+            console.log(data.data.result_how_we_met);
+            $("#cam-on").html("Cám ơn " + data.data.name);
+            $("#loi-cam-on").html(data.data.result_thank_you);
+            $("#how-we-met").html("<p>" + data.data.result_how_we_met + "</p>");
             $("#rsvp-modal").modal("show");
+            $("#rsvp-modal").modal("hide");
+            $(".popup-background").css("display", "none"); // Hide the popup background
           }
         })
         .fail(function (data) {
