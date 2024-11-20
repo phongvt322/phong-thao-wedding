@@ -258,7 +258,7 @@ $(document).ready(function () {
       $("#alert-wrapper").html(alert_markup("danger", "<strong>123</strong>"));
     } else {
       $.ajax({
-        url: "https://script.google.com/macros/s/AKfycbwUjv9onKWdN0unvqe7uqsG9Yq7z_KIp8Pr7z8XLPAtBh9NBfiGBx7mJ2aJCkvzE05AXg/exec",
+        url: "https://script.google.com/macros/s/AKfycbze_cbhP8wbKaTBGpZxMSIG9b7S3iyuXy1Jv0bnnWX-1BIuyJazEk67nis8J52jkMW-qA/exec",
         type: "POST",
         data: data,
         contentType: "application/x-www-form-urlencoded",
