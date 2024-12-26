@@ -255,7 +255,12 @@ $(document).ready(function () {
     );
 
     if (MD5($("#invite_code").val()) !== "cdadd6d9142d6d284e480028e18163c1") {
-      $("#alert-wrapper").html(alert_markup("danger", "<strong>123</strong>"));
+      $("#alert-wrapper").html(
+        alert_markup(
+          "danger",
+          "<strong>Wrong invitation code. Plz try again.</strong>"
+        )
+      );
     } else {
       $.ajax({
         url: "https://script.google.com/macros/s/AKfycbzGuxCBFvfl27VCxKwWodpStjGszL8DXIIRwp86wN9itRygohB_CfI8_1mr0yovNsN2jw/exec",
@@ -290,6 +295,10 @@ $(document).ready(function () {
           );
         });
     }
+  });
+
+  $("#rsvp-form").on("close", function (e) {
+    $("#rsvp-modal").modal("hide");
   });
 });
 

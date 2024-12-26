@@ -252,18 +252,18 @@ Hero
 ========================================================================== */
 .hero {
   min-height: 750px;
-  background: url('../img/hero-min.jpg') center center;
+  background: url('../img/hero-min.jpg') top center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   position: relative;
 
-  /*.rsvp-btn {
+  .rsvp-btn {
     position: absolute;
     bottom: 100px;
     left: 50%;
-  }*/
+  }
   .down-arrow a {
     color: $txt-light;
   }
@@ -793,8 +793,9 @@ RSVP form
     .rsvp-btn {
       padding: 15px 0;
       border-radius: 3px;
-      width: 100%;
+      width: auto;
       font-size: 13px;
+      margin-right: 10px;
     }
     .form-input-group {
       width: 100%;
@@ -847,6 +848,25 @@ RSVP form
         color: $form-placeholder;
       }
     }
+    .button-row {
+      display: flex;  /* Enable flexbox on row */
+      justify-content: flex-start;  /* Align items on beginning */
+      align-items: center;
+    }
+    .close-popup-btn {
+      background: transparent;
+        border: none;
+         cursor: pointer;
+        color: #333;
+         font-size:18px;
+         font-weight: bold;
+        transform: scale(1);
+        transition: transform .2s ease;
+         text-align: right;
+   }
+ .close-popup-btn:hover {
+     transform: scale(1.1);
+   }
   }
 }
 
@@ -896,3 +916,7 @@ body.modal-open {
 .modal-body {
   padding:25px;
 }
+
+/* ==========================================================================
+Close button
+========================================================================== */

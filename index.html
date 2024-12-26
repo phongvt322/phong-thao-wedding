@@ -136,7 +136,7 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="hero-content text-center">
                     <!--<h1>Ram and Antara</h1>-->
-                    <img src="img/logo-lg.png">
+                    <!-- <img src="img/logo-lg.png"> -->
                     <!--<p class="intro">Ram & Antara are getting hitched!</p>-->
                     <!--<a href="#" class="btn btn-fill btn-large btn-margin-right">Scroll Down</a> -->
                 </div>
@@ -144,8 +144,8 @@
         </div>
         <div class="row">
             <div class="col-sm-4 hidden-xs"></div>
-            <div class="col-sm-4 hidden-xs text-center"><a href="#rsvp"
-                                                           class="btn btn-accent btn-large rsvp-btn">RSVP</a></div>
+            <!-- <div class="col-sm-4 hidden-xs text-center"><a href="#rsvp"
+                                                           class="btn btn-accent btn-large rsvp-btn">RSVP</a></div> -->
             <div class="col-sm-4 hidden-xs"></div>
         </div>
     </div>
@@ -310,7 +310,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h3 class="header">Engagement Pics</h3>
+                <h3 class="header">Prewedding Pics</h3>
             </div>
         </div>
         <div class="row">
@@ -512,9 +512,11 @@
                     <div class="row">
                         <div class="col-md-12" id="alert-wrapper"></div>
                     </div>
-                    <button class="btn-fill rsvp-btn">
-                        Yes,
-                        that's me!
+                    <button type="submit" class="btn-fill rsvp-btn">
+                             Yes, that's me! Give me some miracle.
+                    </button>
+                    <button type="button" class="rsvp-btn btn-fill" onclick="closePopupAdhoc()">     Let me be anynomous
+
                     </button>
                 </form>
             </div>
@@ -564,9 +566,13 @@
 //   }
 
   // Close popup function
-  function closePopup() {
-    document.getElementById("popup").classList.remove("show");
-  }
+  function closePopupAdhoc() {
+    console.log("closePopupAdhoc function was triggered!");
+    $("#rsvp-modal").modal("show");
+    $("#rsvp-modal").modal("hide");
+    $(".popup-background").css("display", "none"); // Hide the popup background
+  // Your logic to close the popup goes here
+}
       // Automatically open popup when the page loads
     //   window.onload = function() {
     //   openPopup();
