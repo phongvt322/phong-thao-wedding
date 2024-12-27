@@ -259,7 +259,7 @@ $(document).ready(function () {
         );
       } else {
         $.ajax({
-          url: "https://script.google.com/macros/s/AKfycbz_tEG4hn4StB5tHw2NN-D8Dy9Pt0dRNj_s_w5eUCrC2VMdzQ0tznN0RpzLQJnqXG_jtg/exec",
+          url: "https://script.google.com/macros/s/AKfycbwWsjheI7Wz4FOUBMpChbw2IVU3bOgLLG33-9vR1Sz0dJNG1ODLLqVYj7oAVprC3IFjcg/exec",
           type: "POST",
           data: data,
           contentType: "application/x-www-form-urlencoded",
@@ -273,7 +273,8 @@ $(document).ready(function () {
               $("#alert-wrapper").html("");
               if ("data" in data) {
                 console.log(data.data.result_how_we_met);
-                $("#cam-on").html("Cám ơn " + data.data.name);
+                $("#dear-friend").html("Dear " + data.data.name);
+                $("#cam-on").html("Grateful for You, " + data.data.name);
                 $("#loi-cam-on").html(data.data.result_thank_you);
                 $("#how-we-met").html(
                   "<p>" + data.data.result_how_we_met + "</p>"

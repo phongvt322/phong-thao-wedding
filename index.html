@@ -92,12 +92,181 @@
     .show {
       display: flex;
     }
-        /* Set the size of the map */
-        #map {
-            width: 100%;
-            height: 500px;
-            align-self: center;
-        }
+    /* Set the size of the map */
+    #map {
+        width: 100%;
+        height: 300px;
+        align-self: center;
+    }
+    /* body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        } */
+    .container-invitation {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .invitation-details {
+        font-size: 18px;
+        /* margin-bottom: 20px; */
+    }
+    .location h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: #4a3925;
+    line-height: 1.6;
+    margin: 20px 0;
+    font-weight: 500;
+  }
+
+  .location-header h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: #4a3925;
+    line-height: 1.6;
+    margin: 20px 0;
+    font-weight: 500;
+  }
+
+  .location h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    color: #4a3925;
+    line-height: 1;
+    margin: 20px 0;
+    font-weight: 700;
+  }
+
+  .location a {
+    color: #826a4a;
+    text-decoration: none;
+    border-bottom: 1px dotted #826a4a;
+    transition: all 0.3s ease;
+  }
+
+  .location a:hover {
+    color: #4a3925;
+    border-bottom-style: solid;
+  }
+        .paper-invitation {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #fff9f3;
+    padding: 60px 40px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    position: relative;
+    text-align: center;
+    border: 1px solid #e8d9c5;
+    background-image:
+      radial-gradient(circle at 100% 150%, #f7f1ea 24%, #fff9f3 25%, #fff9f3 28%, #f7f1ea 29%, #f7f1ea 36%, #fff9f3 36%, #fff9f3 40%, transparent 40%, transparent),
+      radial-gradient(circle at 0 150%, #f7f1ea 24%, #fff9f3 25%, #fff9f3 28%, #f7f1ea 29%, #f7f1ea 36%, #fff9f3 36%, #fff9f3 40%, transparent 40%, transparent),
+      radial-gradient(circle at 50% 100%, #fff9f3 10%, #f7f1ea 11%, #f7f1ea 23%, #fff9f3 24%, #fff9f3 30%, #f7f1ea 31%, #f7f1ea 43%, #fff9f3 44%, #fff9f3 50%, #f7f1ea 51%, #f7f1ea 63%, #fff9f3 64%, #fff9f3 71%, transparent 71%, transparent),
+      radial-gradient(circle at 100% 50%, #fff9f3 5%, #f7f1ea 6%, #f7f1ea 15%, #fff9f3 16%, #fff9f3 20%, #f7f1ea 21%, #f7f1ea 30%, #fff9f3 31%, #fff9f3 35%, #f7f1ea 36%, #f7f1ea 45%, #fff9f3 46%, #fff9f3 49%, transparent 50%, transparent),
+      radial-gradient(circle at 0 50%, #fff9f3 5%, #f7f1ea 6%, #f7f1ea 15%, #fff9f3 16%, #fff9f3 20%, #f7f1ea 21%, #f7f1ea 30%, #fff9f3 31%, #fff9f3 35%, #f7f1ea 36%, #f7f1ea 45%, #fff9f3 46%, #fff9f3 49%, transparent 50%, transparent);
+    background-size: 100px 50px;
+  }
+  /* .invitation-details { */
+    /* margin-bottom: 40px; */
+  /* } */
+  .invitation-info h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: #4a3925;
+    margin: 15px 0;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+    /* Decorative corners */
+    .corner {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #d4b78c;
+  }
+
+  .top-left {
+    top: 20px;
+    left: 20px;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .top-right {
+    top: 20px;
+    right: 20px;
+    border-left: none;
+    border-bottom: none;
+  }
+
+  .bottom-left {
+    bottom: 20px;
+    left: 20px;
+    border-right: none;
+    border-top: none;
+  }
+
+  .bottom-right {
+    bottom: 20px;
+    right: 20px;
+    border-left: none;
+    border-top: none;
+  }
+
+  /* Ornamental dividers */
+  .divider {
+    font-size: 24px;
+    color: #d4b78c;
+    margin: 20px 0;
+  }
+  .border-frame {
+    border: 2px solid #d4b78c;
+    padding: 40px;
+    margin: 20px;
+    position: relative;
+  }
+
+  .border-frame::before {
+    content: '❧';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: #d4b78c;
+    background: #fff9f3;
+    padding: 0 20px;
+  }
+
+  .border-frame::after {
+    content: '❧';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+    font-size: 24px;
+    color: #d4b78c;
+    background: #fff9f3;
+    padding: 0 20px;
+  }
+  .invitation-details h4:first-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    color: #826a4a;
+    margin-bottom: 30px;
+  }
+
+  .invitation-details h4:last-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: #30261c;
+    /* line-height: 1.5; */
+    /* margin-bottom: 40px; */
+  }
     </style>
 
 </head>
@@ -153,14 +322,64 @@
     <div class="down-arrow floating-arrow"><a href="#invitation"><i class="fa fa-angle-down"></i></a></div>
 </section>
 <section class="countdown section-padding" id="countdown">
-    <div class="container">
+    <div class="paper-invitation">
         <div class="row">
-            <div class="col-md-12">
-                <h3 class="header">Countdown to the Big Day!</h3>
-                <h4 class="header">2025-01-11, 11:00:00 AM At Gala Royale, 63 Mac Dinh Chi, 1st district, Ho Chi Minh city.</h3>
+            <div class="col-md-12 text-center">
+                <!-- <h1 class="header">Wedding Invitation</h1> -->
+                <div class="corner top-left"></div>
+                <div class="corner top-right"></div>
+                <div class="corner bottom-left"></div>
+                <div class="corner bottom-right"></div>
+
+                <div class="border-frame">
+                  <div class="location-header">
+                    <h4 id="dear-friend">Dear friends and family,</h4>
+                    <h4>We are thrilled to invite you to our special day!</h4>
+                  </div>
+                  <div class="divider">✦ ❧ ✦</div>
+                  <div class="location">
+                    <h4>11<sup>th</sup> JANUARY 2025</h4>
+                    <h4>11:00 AM</h4>
+                  </div>
+
+                  <div class="divider">✦ ❧ ✦</div>
+
+                  <div class="location">
+                    <h3><a href="https://maps.app.goo.gl/g3s1sN4QxPXvZQdy5" target="_blank">Gala Royale, 63 Mac Dinh Chi, district 1, Ho Chi Minh city.</a></h3>
+                  </div>
+                <div class = "mappp">
+                    <section id="map" class="section-padding">
+                        <h1>Mapbox Map</h1>
+                        <div id="map"></div>
+
+                        <!-- Mapbox GL JS -->
+                        <script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
+                        <script>
+                            // Set your access token
+                            mapboxgl.accessToken = 'pk.eyJ1IjoicGhvbmd2dDEiLCJhIjoiY2xoZzFncnNjMGVnMzNldGVoZm82bXg1biJ9.piIeJ019YT_v1QrDsyoMGw';
+
+                            // Create a new map instance centered on Ho Chi Minh City
+                            const map = new mapboxgl.Map({
+                                container: 'map', // Container ID
+                                style: 'mapbox://styles/mapbox/streets-v11', // Map style
+                                // center: [106.6903,10.7557], // Ho Chi Minh City coordinates [lng, lat]
+                                center: [106.6963,10.7877],
+                                zoom: 15 // Zoom level to focus on the city
+                            });
+
+                            // Optional: Add a marker at the center
+                            new mapboxgl.Marker()
+                                .setLngLat([106.6963,10.7877])
+                                .setPopup(new mapboxgl.Popup().setHTML(`
+                                    <h3><a href="https://maps.app.goo.gl/g3s1sN4QxPXvZQdy5" target="_blank">gala royale</a></h3>
+                                `)) // The popup HTML with a clickable link
+                                .addTo(map);
+                        </script>
+                    </section>
+                </div>
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-12 text-center">
                 <div id="countdown-timer">
                     <div id="days" class="countdown-item">
@@ -181,8 +400,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
+        </div> -->
+        <!-- <div class="row">
             <div class="col-md-12 text-center">
                 <div class="big-day">
                     <h2 id="big-day-text">The Big Day is Coming!</h2>
@@ -195,11 +414,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 
-<script>
+<!-- <script>
     // Set the countdown date
     var countdownDate = new Date('2025-01-11T11:00:00');
     // document.getElementById('countdown-date').innerHTML = 'Countdown to: ' + countdownDate.toLocaleString();
@@ -229,7 +448,7 @@
             document.querySelector('.confetti').classList.add('animate');
         }
     }, 1000);
-</script>
+</script> -->
 
 <style>
     .big-day {
@@ -307,39 +526,12 @@
         }
     }
 </style>
-<section id="map" class="section-padding">
-    <h1>Mapbox Map</h1>
-    <div id="map"></div>
 
-    <!-- Mapbox GL JS -->
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
-    <script>
-        // Set your access token
-        mapboxgl.accessToken = 'pk.eyJ1IjoicGhvbmd2dDEiLCJhIjoiY2xoZzFncnNjMGVnMzNldGVoZm82bXg1biJ9.piIeJ019YT_v1QrDsyoMGw';
-
-        // Create a new map instance centered on Ho Chi Minh City
-        const map = new mapboxgl.Map({
-            container: 'map', // Container ID
-            style: 'mapbox://styles/mapbox/streets-v11', // Map style
-            // center: [106.6903,10.7557], // Ho Chi Minh City coordinates [lng, lat]
-            center: [106.6963,10.7877],
-            zoom: 15 // Zoom level to focus on the city
-        });
-
-        // Optional: Add a marker at the center
-        new mapboxgl.Marker()
-            .setLngLat([106.6963,10.7877])
-            .setPopup(new mapboxgl.Popup().setHTML(`
-                <h3><a href="https://maps.app.goo.gl/g3s1sN4QxPXvZQdy5" target="_blank">gala royale</a></h3>
-            `)) // The popup HTML with a clickable link
-            .addTo(map);
-    </script>
-</section>
 <section id="invitation" class="section-padding">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h3 id="cam-on">Thanks you</h3>
+                <h3 id="cam-on">Grateful for You, [Name]"</h3>
                 <p id="loi-cam-on">We want to say a big thank you from the bottom of our hearts for being a part of our special day. Your love, support, and presence at our wedding meant the world to us. Each of you has played a unique role in our journey, and having you there made our celebration truly unforgettable.
 
                     Thank you for the laughter, the joy, and the memories we’ll cherish forever. We’re so grateful to have friends like you in our lives.
@@ -368,7 +560,7 @@
         <div class="row">
             <div class="col-md-3 hidden-sm hidden-xs">
                 <img src="img/IMG_2317.jpg" class="wp1">
-                <img src="img/IMG_2318.jpg" class="wp1">
+                <img src="img/DSD_0215.jpg" class="wp1">
             </div>
             <div class="col-md-6" id = "how-we-met">
                 <p>
@@ -386,7 +578,7 @@
             </div>
             <div class="col-md-3 hidden-sm hidden-xs">
                 <img src="img/DSD_0214.jpg" class="wp2">
-                <img src="img/DSD_0215.jpg" class="wp2">
+                <img src="img/IMG_2318.jpg" class="wp2">
             </div>
         </div>
         <div class="row">
@@ -407,18 +599,18 @@
             <div class="col-md-6 col-sm-12 col-xs-12 leftcol">
                 <div class="wp3">
                     <p><strong>January 7<sup>th</sup></strong></p>
-                    <h5>Bride's side wedding ceremony<span class="time">11AM - 12AM</span></h5>
+                    <h5>Bride's side wedding ceremony |  <span class="time">11AM - 12AM</span></h5>
                     <p>We cordially invite you to join us for an intimate celebration at the bride's family residence in Phú Phụng, Bến Tre. This traditional ceremony will be shared with our closest friends and family members. Your presence would make our special day even more memorable.</p>
                 </div>
                 <div class="wp5">
-                    <h5>Gia Tiên Ceremony<span class="time">05:30PM - 07:30PM</span></h5>
+                    <h5>Gia Tiên Ceremony |  <span class="time">05:30PM - 07:30PM</span></h5>
                     <p>The Gia Tiên Ceremony is a cherished tradition in Vietnamese weddings, honoring the spiritual connection between generations. </p>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12 rightcol">
                 <div class="wp4">
                     <p><strong>January 11<sup>th</sup></strong></p>
-                    <h5>Groom's side wedding ceremony<span class="time">11AM - 13PM</span></h5>
+                    <h5>Groom's side wedding ceremony |  <span class="time">11AM - 13PM</span></h5>
                     <p>Our wedding ceremony will take place at Gala Royale in Ho Chi Minh City, known for its elegance and stunning design. Enjoy an array of diverse offerings and delightful delicious food while you celebrate our special day with us. Join us should you find it convenient to take a trip to an iconic city.</p>
                 </div>
             </div>
