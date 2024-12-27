@@ -96,6 +96,7 @@
         #map {
             width: 100%;
             height: 500px;
+            align-self: center;
         }
     </style>
 
@@ -116,7 +117,7 @@
                             <li><a href="#intro">How we met</a></li>
                             <li><a href="#events">Events</a></li>
                             <li><a href="#instagram">Instagram</a></li>
-                            <li><a href="#eng-pics">Engagement</a></li>
+                            <li><a href="#eng-pics">Prewedding</a></li>
                             <li class="hidden-sm hidden-xs"><a href="#video-bg">Glimpse of the city</a></li>
                         </ul>
                         <ul class="member-actions">
@@ -151,25 +152,212 @@
     </div>
     <div class="down-arrow floating-arrow"><a href="#invitation"><i class="fa fa-angle-down"></i></a></div>
 </section>
-
-<section id="invitation" class="section-padding">
+<section class="countdown section-padding" id="countdown">
     <div class="container">
         <div class="row">
+            <div class="col-md-12">
+                <h3 class="header">Countdown to the Big Day!</h3>
+                <h4 class="header">2025-01-11, 11:00:00 AM At Gala Royale, 63 Mac Dinh Chi, 1st district, Ho Chi Minh city.</h3>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-12 text-center">
-                <h3 id="cam-on">We are getting hitched</h3>
-                <p id="loi-cam-on">The dates are 27<sup>th</sup> & 28<sup>th</sup> of November '17 and we would like you to be a part of
-                    it.</p>
-                <div class="share-bar"></div>
+                <div id="countdown-timer">
+                    <div id="days" class="countdown-item">
+                        <span id="days-number">0</span>
+                        <span>Days</span>
+                    </div>
+                    <div id="hours" class="countdown-item">
+                        <span id="hours-number">0</span>
+                        <span>Hours</span>
+                    </div>
+                    <div id="minutes" class="countdown-item">
+                        <span id="minutes-number">0</span>
+                        <span>Minutes</span>
+                    </div>
+                    <div id="seconds" class="countdown-item">
+                        <span id="seconds-number">0</span>
+                        <span>Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="big-day">
+                    <h2 id="big-day-text">The Big Day is Coming!</h2>
+                    <div class="confetti">
+                        <div class="confetti-piece"></div>
+                        <div class="confetti-piece"></div>
+                        <div class="confetti-piece"></div>
+                        <div class="confetti-piece"></div>
+                        <div class="confetti-piece"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
+<script>
+    // Set the countdown date
+    var countdownDate = new Date('2025-01-11T11:00:00');
+    // document.getElementById('countdown-date').innerHTML = 'Countdown to: ' + countdownDate.toLocaleString();
+    // Update the countdown every second
+    setInterval(function() {
+        var now = new Date();
+        var timeLeft = countdownDate.getTime() - now.getTime();
+
+        console.log(countdownDate)
+        console.log(now)
+        console.log(timeLeft)
+
+        // Calculate the days, hours, minutes, and seconds
+        var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        // Update the countdown display
+        document.getElementById('days-number').innerHTML = days;
+        document.getElementById('hours-number').innerHTML = hours;
+        document.getElementById('minutes-number').innerHTML = minutes;
+        document.getElementById('seconds-number').innerHTML = seconds;
+
+        // Animate the confetti
+        if (timeLeft < 10000) {
+            document.querySelector('.confetti').classList.add('animate');
+        }
+    }, 1000);
+</script>
+
+<style>
+    .big-day {
+        margin-top: 50px;
+    }
+
+    .confetti {
+        position: relative;
+        width: 100%;
+        height: 100px;
+        overflow: hidden;
+    }
+
+    .confetti-piece {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #ff69b4;
+        border-radius: 50%;
+        animation: confetti 2s infinite;
+    }
+
+    .confetti-piece:nth-child(1) {
+        top: 0;
+        left: 20%;
+        animation-delay: 0.2s;
+    }
+
+    .confetti-piece:nth-child(2) {
+        top: 20px;
+        left: 40%;
+        animation-delay: 0.4s;
+    }
+
+    .confetti-piece:nth-child(3) {
+        top: 40px;
+        left: 60%;
+        animation-delay: 0.6s;
+    }
+
+    .confetti-piece:nth-child(4) {
+        top: 60px;
+        left: 80%;
+        animation-delay: 0.8s;
+    }
+
+    .confetti-piece:nth-child(5) {
+        top: 80px;
+        left: 100%;
+        animation-delay: 1s;
+    }
+
+    .animate .confetti-piece {
+        animation: confetti-animate 2s infinite;
+    }
+
+    @keyframes confetti {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-100px);
+        }
+    }
+
+    @keyframes confetti-animate {
+        0% {
+            transform: translateY(0) scale(1);
+        }
+        50% {
+            transform: translateY(-50px) scale(1.5);
+        }
+        100% {
+            transform: translateY(-100px) scale(1);
+        }
+    }
+</style>
+<section id="map" class="section-padding">
+    <h1>Mapbox Map</h1>
+    <div id="map"></div>
+
+    <!-- Mapbox GL JS -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
+    <script>
+        // Set your access token
+        mapboxgl.accessToken = 'pk.eyJ1IjoicGhvbmd2dDEiLCJhIjoiY2xoZzFncnNjMGVnMzNldGVoZm82bXg1biJ9.piIeJ019YT_v1QrDsyoMGw';
+
+        // Create a new map instance centered on Ho Chi Minh City
+        const map = new mapboxgl.Map({
+            container: 'map', // Container ID
+            style: 'mapbox://styles/mapbox/streets-v11', // Map style
+            // center: [106.6903,10.7557], // Ho Chi Minh City coordinates [lng, lat]
+            center: [106.6963,10.7877],
+            zoom: 15 // Zoom level to focus on the city
+        });
+
+        // Optional: Add a marker at the center
+        new mapboxgl.Marker()
+            .setLngLat([106.6963,10.7877])
+            .setPopup(new mapboxgl.Popup().setHTML(`
+                <h3><a href="https://maps.app.goo.gl/g3s1sN4QxPXvZQdy5" target="_blank">gala royale</a></h3>
+            `)) // The popup HTML with a clickable link
+            .addTo(map);
+    </script>
+</section>
+<section id="invitation" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3 id="cam-on">Thanks you</h3>
+                <p id="loi-cam-on">We want to say a big thank you from the bottom of our hearts for being a part of our special day. Your love, support, and presence at our wedding meant the world to us. Each of you has played a unique role in our journey, and having you there made our celebration truly unforgettable.
+
+                    Thank you for the laughter, the joy, and the memories we’ll cherish forever. We’re so grateful to have friends like you in our lives.
+
+                    With love and gratitude,
+                    Thanh Phong & Ngọc Thảo.</p>
+            </div>
+        </div>
+    </div>
+</section>
 <section id="intro">
     <div class="container">
-        <div class="row section-padding">
+        <div class="row">
             <div class="col-md-4 col-md-offset-4 text-center">
                 <div id="add-to-cal"></div>
+            </div>
+            <div class="col-md-4 col-md-offset-4 text-center">
+                <div class="share-bar"></div>
             </div>
         </div>
         <div class="row">
@@ -178,23 +366,27 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 hidden-sm hidden-xs"><img src="img/IMG_2317.jpg" class="wp1"></div>
+            <!-- <div class="col-md-3 hidden-sm hidden-xs"><img src="img/IMG_2317.jpg" class="wp1"></div> -->
             <div class="col-md-6" id = "how-we-met">
                 <p>
-                    I first saw Antara in the Fall of 2008 when we started our undergrad. I was instantly attracted to
-                    her but was far too nervous to speak to her. I had told my friend I liked her and news had traveled
-                    fast and she soon found out. Her first reaction was "Who is Ram?" and she began searching for me in
-                    the class. She started to take notice of me and no matter how boring the lecture was, we never
-                    missed a class after that. After a good few months I finally plucked up the courage to ask her out
-                    and the rest is history :)
+                    Our love story is proof that fate has a wild sense of humor.
+                </p>
+                <p>
+                    The first time we met? At a running contest. Sparks flew, but no words did—probably because Phong (the groom) was too busy battling a heroic stomach ache.
+                </p>
+                <p>
+                    The second encounter? A hotspot party. Sounds cool, right? Except we somehow ended up on opposite sides of the venue, unable to see or talk to each other. Smooth, huh?
+                </p>
+                <p>
+                    But third time’s the charm. On a hiking trip, we finally got it right. No running, no wrong sides—just us, realizing we were the one for each other. We knew right then and there: no more missed chances.
                 </p>
             </div>
-            <div class="col-md-3 hidden-sm hidden-xs"><img src="img/DSD_0214.jpg" class="wp2"></div>
+            <!-- <div class="col-md-3 hidden-sm hidden-xs"><img src="img/DSD_0214.jpg" class="wp2"></div> -->
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="img/IMG_2317.jpg" class="wp8"></div>
             <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="img/DSD_0214.jpg" class="wp9"></div>
-        </div>
+        </div> -->
     </div>
 </section>
 
@@ -208,30 +400,21 @@
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12 leftcol">
                 <div class="wp3">
-                    <p><strong>Ngày 8, tháng 1</strong></p>
-
-                    <h5>Đám cưới nhà gái<span class="time">11AM - 12AM</span></h5>
-                    <p></p>
+                    <p><strong>January 7<sup>th</sup></strong></p>
+                    <h5>Bride's side wedding ceremony<span class="time">11AM - 12AM</span></h5>
+                    <p>We cordially invite you to join us for an intimate celebration at the bride's family residence in Phú Phụng, Bến Tre. This traditional ceremony will be shared with our closest friends and family members. Your presence would make our special day even more memorable.</p>
                 </div>
                 <div class="wp5">
-                    <h5>Nhóm Họ <span class="time">5h30PM - 7h30PM</span></h5>
-                    <p></p>
+                    <h5>Gia Tiên Ceremony<span class="time">05:30PM - 07:30PM</span></h5>
+                    <p>The Gia Tiên Ceremony is a cherished tradition in Vietnamese weddings, honoring the spiritual connection between generations. </p>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12 rightcol">
                 <div class="wp4">
-                    <p><strong>Ngày 11, tháng 1</strong></p>
-
-                    <h5>Đám cưới <span class="time">11AM - 13PM</span></h5>
-                    <p></p>
+                    <p><strong>January 11<sup>th</sup></strong></p>
+                    <h5>Groom's side wedding ceremony<span class="time">11AM - 13PM</span></h5>
+                    <p>Our wedding ceremony will take place at Gala Royale in Ho Chi Minh City, known for its elegance and stunning design. Enjoy an array of diverse offerings and delightful delicious food while you celebrate our special day with us. Join us should you find it convenient to take a trip to an iconic city.</p>
                 </div>
-                <!-- <div class="wp6">
-                    <h5>Wedding <span class="time">6PM-12AM</span></h5>
-                    <p>This is the main event in the entire wedding when the bride and the groom tie the
-                        knot. The groom comes with the barat and is greeted by the bride side with some dhol of course
-                        as maximum number of guests would be attending this event. This is when the couple circle the
-                        sacred fire and are finally declared husband and wife.</p>
-                </div> -->
             </div>
         </div>
         <div class="row section-padding">
@@ -241,12 +424,7 @@
                 </a>
             </div>
         </div>
-        <!--<div class="row">
-            <div class="col-xs-12 section-border section-padding">
-            </div>
-        </div>-->
     </div>
-
     <div id="dc-modal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -254,44 +432,18 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
                     </button>
                     <h3 class="text-center section-padding">Ugh... dress codes?</h3>
-                    <h5>Mehndi <span class="time">1PM - 5PM</span></h5>
                     <p>
-                        <strong>Ethnic indian wear</strong>
                         <br>
-                        Ladies can wear something
-                        <a href="https://www.pinterest.com/ramswarooppatra/mehndi-dress-for-women/">bright & vivid</a>
-                        and gentlemen can be on
-                        their <a href="https://www.pinterest.com/ramswarooppatra/mehndi-dress-for-men/">vibrant
-                        kurtas</a> with pants or pyjamas along with an optional shawl.
-                    </p>
-                    <h5>Cocktail Night <span class="time">7PM - 12AM</span></h5>
-                    <p>
-                        <strong>Western attire</strong>
-                        <br>
-                        A semi-formal look that is contemporary & fashionable which is not too prim & proper is the best
-                        to pull off this night. You can see some pins for
-                        <a href="https://www.pinterest.com/ramswarooppatra/cocktail-night-outfit-for-women/">ladies</a>
-                        & <a href="https://www.pinterest.com/ramswarooppatra/cocktail-night-outfit-for-men/">gents</a>.
-                    </p>
-                    <h5>Wedding <span class="time">6PM-12AM</span></h5>
-                    <p>
-                        <strong>Indo-western</strong>
-                        <br>
-                        Ladies can flaunt their unconventional sarees,
-                        <a href="https://www.pinterest.com/ramswarooppatra/indo-western-lehengas/">lehengas</a>,
-                        <a href="https://www.pinterest.com/ramswarooppatra/indo-western-anarkalis/">anarkalis</a>,
-                        dresses and the list
-                        goes on whereas gentlemen can wear any kind of suit or just blazer. If you don't like to wear a
-                        suit/blazer, you can do a <a
-                            href="https://www.pinterest.com/ramswarooppatra/high-neck-jackets-for-men/">high-neck
-                        (band gala) waistcoat & shirt</a> combo.
+                        Wear whatever you want—formal, casual, or your favorite funky outfit—but there’s one rule:
+                        <strong>you  must have a big smile on your face! 😊</strong>
+                    </br>
                     </p>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-
 </section>
+
 
 <section id="instagram" class="section-padding">
     <div class="container">
@@ -299,7 +451,7 @@
             <div class="col-md-12 text-center">
                 <h3>A picture is worth a thousand words!</h3>
                 <p>Help us capture the moment, tag your photos with the hashtag
-                    <a href="https://instagram.com/explore/tags/stoooooooooooooop/" target="_blank">#PhoAndThao</a>
+                    <a href="https://instagram.com/explore/tags/stoooooooooooooop/" target="_blank">#Phong&Thao</a>
                 </p>
             </div>
         </div>
@@ -407,34 +559,7 @@
 </section>
 
 
-<section id="map" class="section-padding">
-    <h1>Mapbox Map</h1>
-    <div id="map"></div>
 
-    <!-- Mapbox GL JS -->
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
-    <script>
-        // Set your access token
-        mapboxgl.accessToken = 'pk.eyJ1IjoicGhvbmd2dDEiLCJhIjoiY2xoZzFncnNjMGVnMzNldGVoZm82bXg1biJ9.piIeJ019YT_v1QrDsyoMGw';
-
-        // Create a new map instance centered on Ho Chi Minh City
-        const map = new mapboxgl.Map({
-            container: 'map', // Container ID
-            style: 'mapbox://styles/mapbox/streets-v11', // Map style
-            // center: [106.6903,10.7557], // Ho Chi Minh City coordinates [lng, lat]
-            center: [106.6935,10.7875],
-            zoom: 12 // Zoom level to focus on the city
-        });
-
-        // Optional: Add a marker at the center
-        new mapboxgl.Marker()
-            .setLngLat([106.6903,10.7557])
-            .setPopup(new mapboxgl.Popup().setHTML(`
-                <h3><a href="https://maps.app.goo.gl/g3s1sN4QxPXvZQdy5" target="_blank">gala royale</a></h3>
-            `)) // The popup HTML with a clickable link
-            .addTo(map);
-    </script>
-</section>
 <div id="popup" class="popup-background">
 <section class="rsvp text-center" id="rsvp">
 <section class="rsvp calendar">
@@ -475,9 +600,9 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-phone"></i><input type="phone" name="phone" class=""
+                                <i class="fa fa-phone"></i><input type="phone" name="phone" class="" id = "phone"
                                                                      placeholder="Your phone"
-                                                                     required>
+                                                                     >
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
@@ -485,7 +610,7 @@
                                 <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
                                                                 class="" min="0"
                                                                 placeholder="Invite code"
-                                                                required>
+                                                                >
                             </div>
                         </div>
                     </div>
@@ -494,7 +619,7 @@
                             <div class="form-input-group">
                                 <i class="fa fa-user"></i><input type="name" name="name" class=""
                                                                      placeholder="Your name"
-                                                                     required>
+                                                                     >
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
@@ -502,7 +627,7 @@
                                 <i class="fa fa-users"></i><input type="number" name="extras"
                                                                 class="" min="0"
                                                                 placeholder="Husband/Wife or kids"
-                                                                required>
+                                                                >
                             </div>
                         </div>
                     </div>
@@ -511,7 +636,7 @@
                             <div class="form-input-group">
                                 <i class="fa fa-heart"></i><input type="wishe" name="wishe" class=""
                                                                      placeholder="Well wishes"
-                                                                     required>
+                                                                     >
                             </div>
                         </div>
                     </div>
@@ -521,9 +646,8 @@
                     <button type="submit" class="btn-fill rsvp-btn">
                              Yes, that's me! Give me some miracle.
                     </button>
-                    <button type="button" class="rsvp-btn btn-fill" onclick="closePopupAdhoc()">     Let me be anynomous
-
-                    </button>
+                    <!-- <button type="button" class="rsvp-btn btn-fill" onclick="closePopupAdhoc()">     Let me be anynomous
+                    </button> -->
                 </form>
             </div>
         </div>

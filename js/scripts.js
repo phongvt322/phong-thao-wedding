@@ -132,7 +132,7 @@ $(document).ready(function () {
           "border-bottom": "solid 1px rgba(255, 255, 255, 0.2)",
           padding: "50px 0",
         });
-        $("header .member-actions").css({
+        $("header .member-acti  ons").css({
           top: "41px",
         });
         $("header .navicon").css({
@@ -178,20 +178,9 @@ $(document).ready(function () {
 
   for (var i = 0; i < share_bar.length; i++) {
     var html =
-      '<iframe allowtransparency="true" frameborder="0" scrolling="no"' +
-      'src="https://platform.twitter.com/widgets/tweet_button.html?url=' +
-      encodeURIComponent(window.location) +
-      "&amp;text=" +
-      encodeURIComponent(document.title) +
-      '&amp;via=ramswarooppatra&amp;hashtags=ramandantara&amp;count=horizontal"' +
-      'style="width:105px; height:21px;">' +
-      "</iframe>" +
-      '<iframe src="//www.facebook.com/plugins/like.php?href=' +
-      encodeURIComponent(window.location) +
-      '&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=101094500229731&amp;width=150" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>' +
-      '<div class="g-plusone" data-size="medium"></div>';
-
-    // '<iframe src="https://plusone.google.com/_/+1/fastbutton?bsv&amp;size=medium&amp;url=' + encodeURIComponent(window.location) + '" allowtransparency="true" frameborder="0" scrolling="no" title="+1" style="width:105px; height:21px;"></iframe>';
+      '<a href="https://www.facebook.com/sharer/sharer.php?u=https://phongvt322.github.io/wedding-website/" target="_blank">' +
+      "Share on Facebook" +
+      "</a>";
 
     share_bar[i].innerHTML = html;
     share_bar[i].style.display = "inline-block";
@@ -222,21 +211,20 @@ $(document).ready(function () {
       title: "Đám cưới",
 
       // Event start date
-      start: new Date("Nov 27, 2024 10:00"),
+      start: new Date("Jan 11, 2025 11:00"),
 
       // Event duration (IN MINUTES)
       // duration: 120,
 
       // You can also choose to set an end time
       // If an end time is set, this will take precedence over duration
-      end: new Date("Nov 29, 2024 00:00"),
+      end: new Date("Jan 11, 2025 12:00"),
 
       // Event Address
-      address: "Thôn cành lá, xã cành cây, huyện gió mây, tỉnh đồi núi",
+      address: "36, Mạc Đỉnh Chi, Quận 1, tp Hồ Chí Minh",
 
       // Event Description
-      description:
-        "We can't wait to see you on our big day. For any queries or issues, please contact Mr. Amit Roy at +91 9876543210.",
+      description: "Let's party",
     },
   });
 
@@ -253,47 +241,67 @@ $(document).ready(function () {
         "<strong>Just a sec!</strong> We are saving your details."
       )
     );
-
-    if (MD5($("#invite_code").val()) !== "cdadd6d9142d6d284e480028e18163c1") {
-      $("#alert-wrapper").html(
-        alert_markup(
-          "danger",
-          "<strong>Wrong invitation code. Plz try again.</strong>"
-        )
-      );
+    console.log($("#phone").val());
+    if (
+      MD5($("#invite_code").val()) !== "cdadd6d9142d6d284e480028e18163c1" &&
+      $("#phone").val() === undefined
+    ) {
+      console.log($("#invite_code").val());
+      // $("#rsvp-modal").modal("show");
+      // $("#rsvp-modal").modal("hide");
+      // $(".popup-background").css("display", "none"); // Hide the popup background
     } else {
-      $.ajax({
-        url: "https://script.google.com/macros/s/AKfycbyZgGjJuY1kFDFEBKUqqqktn4RhmwXdUi75gWpptGAftvhtTe7HK9vtAio-OSIyl7hc_w/exec",
-        type: "POST",
-        data: data,
-        contentType: "application/x-www-form-urlencoded",
-        // Removed headers as they are not applicable for the client-side request
-      })
-        .done(function (data) {
-          console.log(data);
-          if (data.result === "error") {
-            $("#alert-wrapper").html(alert_markup("danger", data.message));
-          } else {
-            $("#alert-wrapper").html("");
-            // console.log(data);
-            console.log(data.data.result_how_we_met);
-            $("#cam-on").html("Cám ơn " + data.data.name);
-            $("#loi-cam-on").html(data.data.result_thank_you);
-            $("#how-we-met").html("<p>" + data.data.result_how_we_met + "</p>");
-            $("#rsvp-modal").modal("show");
-            $("#rsvp-modal").modal("hide");
-            $(".popup-background").css("display", "none"); // Hide the popup background
-          }
+      if (
+        MD5($("#invite_code").val()) !== "cdadd6d9142d6d284e480028e18163c1" &&
+        $("#phone").val() !== undefined
+      ) {
+        $("#alert-wrapper").html(
+          alert_markup(
+            "danger",
+            "<strong>Wrong invitation code. Plz try again.</strong>"
+          )
+        );
+      } else {
+        $.ajax({
+          url: "https://script.google.com/macros/s/AKfycbz_tEG4hn4StB5tHw2NN-D8Dy9Pt0dRNj_s_w5eUCrC2VMdzQ0tznN0RpzLQJnqXG_jtg/exec",
+          type: "POST",
+          data: data,
+          contentType: "application/x-www-form-urlencoded",
+          // Removed headers as they are not applicable for the client-side request
         })
-        .fail(function (data) {
-          console.log(data);
-          $("#alert-wrapper").html(
-            alert_markup(
-              "danger",
-              "<strong>Sorry!</strong> There is some issue with the server. "
-            )
-          );
-        });
+          .done(function (data) {
+            console.log(data);
+            if (data.result === "error") {
+              $("#alert-wrapper").html(alert_markup("danger", data.message));
+            } else {
+              $("#alert-wrapper").html("");
+              if ("data" in data) {
+                console.log(data.data.result_how_we_met);
+                $("#cam-on").html("Cám ơn " + data.data.name);
+                $("#loi-cam-on").html(data.data.result_thank_you);
+                $("#how-we-met").html(
+                  "<p>" + data.data.result_how_we_met + "</p>"
+                );
+                $("#rsvp-modal").modal("show");
+                $("#rsvp-modal").modal("hide");
+                $(".popup-background").css("display", "none"); // Hide the popup background
+              } else {
+                $("#rsvp-modal").modal("show");
+                $("#rsvp-modal").modal("hide");
+                $(".popup-background").css("display", "none"); // Hide the popup background
+              }
+            }
+          })
+          .fail(function (data) {
+            console.log(data);
+            $("#alert-wrapper").html(
+              alert_markup(
+                "danger",
+                "<strong>Sorry!</strong> There is some issue with the server. "
+              )
+            );
+          });
+      }
     }
   });
 

@@ -920,3 +920,60 @@ body.modal-open {
 /* ==========================================================================
 Close button
 ========================================================================== */
+
+/* ==========================================================================
+Clock Countdown
+========================================================================== */
+
+.countdown {
+  background-color: #f0f0f0;
+  padding: 50px 0;
+}
+
+.countdown .header {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 24px;
+  color: #333;
+}
+
+#countdown-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown-item {
+  margin: 0 20px;
+  text-align: center;
+}
+
+.countdown-item span {
+  display: block;
+}
+
+#days-number, #hours-number, #minutes-number, #seconds-number {
+  font-size: 48px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#days, #hours, #minutes, #seconds {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+  #countdown-timer {
+    flex-direction: column;
+  }
+  .countdown-item {
+    margin: 20px 0;
+  }
+}
