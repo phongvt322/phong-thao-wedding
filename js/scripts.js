@@ -242,18 +242,14 @@ $(document).ready(function () {
       )
     );
     console.log($("#phone").val());
-    if (
-      MD5($("#invite_code").val()) !== "cdadd6d9142d6d284e480028e18163c1" &&
-      $("#phone").val() === undefined
-    ) {
-      console.log($("#invite_code").val());
-      // $("#rsvp-modal").modal("show");
-      // $("#rsvp-modal").modal("hide");
-      // $(".popup-background").css("display", "none"); // Hide the popup background
+    if ($("#phone").val() === "") {
+      $("#rsvp-modal").modal("show");
+      $("#rsvp-modal").modal("hide");
+      $(".popup-background").css("display", "none"); // Hide the popup background
     } else {
       if (
         MD5($("#invite_code").val()) !== "cdadd6d9142d6d284e480028e18163c1" &&
-        $("#phone").val() !== undefined
+        $("#phone").val() !== ""
       ) {
         $("#alert-wrapper").html(
           alert_markup(
