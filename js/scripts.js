@@ -259,7 +259,7 @@ $(document).ready(function () {
         );
       } else {
         $.ajax({
-          url: "https://script.google.com/macros/s/AKfycbwWsjheI7Wz4FOUBMpChbw2IVU3bOgLLG33-9vR1Sz0dJNG1ODLLqVYj7oAVprC3IFjcg/exec",
+          url: "https://script.google.com/macros/s/AKfycbx84VLtZvq0lbjYKOU4P9bmON_0M19dG0_n9gggYHAN8DLNIqx6WkADTboZ02pzbNOK_A/exec",
           type: "POST",
           data: data,
           contentType: "application/x-www-form-urlencoded",
